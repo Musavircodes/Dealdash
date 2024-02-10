@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 const ProductGrid = ({ products }: any) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
+  const [isLoading, setIsLoading] = useState(true); // New state
   const maxItemsInRows = 10;
 
   const searchValue = useSelector((state: RootState) => state.search.value);
@@ -26,6 +27,10 @@ const ProductGrid = ({ products }: any) => {
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
+  useEffect(() => {
+    setIsLoading(false); // Once component is mounted, set isLoading to false
+  }, []);
 
   const renderRows = () => {
     const rowsToRender = [];
@@ -79,20 +84,28 @@ const ProductGrid = ({ products }: any) => {
 
   return (
     <div className="pagination-container">
-      {renderRows()}
-      <div className="d-flex justify-content-center">
-        <Pagination>
-          {Array.from({ length: totalPages }, (_, i) => (
-            <Pagination.Item
-              key={i}
-              active={currentPage === i + 1}
-              onClick={() => paginate(i + 1)}
-            >
-              {i + 1}
-            </Pagination.Item>
-          ))}
-        </Pagination>
-      </div>
+      {isLoading ? null : filteredProducts.length === 0 ? (
+        <div className="d-flex justify-content-center align-items-center p-5">
+          <h3>No Products Found</h3>
+        </div>
+      ) : (
+        <>
+          {renderRows()}
+          <div className="d-flex justify-content-center">
+            <Pagination>
+              {Array.from({ length: totalPages }, (_, i) => (
+                <Pagination.Item
+                  key={i}
+                  active={currentPage === i + 1}
+                  onClick={() => paginate(i + 1)}
+                >
+                  {i + 1}
+                </Pagination.Item>
+              ))}
+            </Pagination>
+          </div>
+        </>
+      )}
     </div>
   );
 };
