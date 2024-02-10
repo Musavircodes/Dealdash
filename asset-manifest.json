@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Musavircodes/Dealdash/static/css/main.c4702bf5.css",
-    "main.js": "/Musavircodes/Dealdash/static/js/main.ef4c25f8.js",
-    "static/media/bg-img-c.webp": "/Musavircodes/Dealdash/static/media/bg-img-c.90b3adfea299b45d006d.webp",
-    "index.html": "/Musavircodes/Dealdash/index.html",
-    "main.c4702bf5.css.map": "/Musavircodes/Dealdash/static/css/main.c4702bf5.css.map",
-    "main.ef4c25f8.js.map": "/Musavircodes/Dealdash/static/js/main.ef4c25f8.js.map"
+    "main.css": "/Dealdash/static/css/main.c4702bf5.css",
+    "main.js": "/Dealdash/static/js/main.27ddaaeb.js",
+    "static/media/bg-img-c.webp": "/Dealdash/static/media/bg-img-c.90b3adfea299b45d006d.webp",
+    "index.html": "/Dealdash/index.html",
+    "main.c4702bf5.css.map": "/Dealdash/static/css/main.c4702bf5.css.map",
+    "main.27ddaaeb.js.map": "/Dealdash/static/js/main.27ddaaeb.js.map"
   },
   "entrypoints": [
     "static/css/main.c4702bf5.css",
-    "static/js/main.ef4c25f8.js"
+    "static/js/main.27ddaaeb.js"
   ]
 }
