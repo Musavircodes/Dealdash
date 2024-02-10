@@ -25,7 +25,7 @@ const App: React.FC = () => {
   return (
     <Routes>
       <Route
-        path="/"
+        path="/Dealdash/"
         element={
           <Layout>
             <Landing />

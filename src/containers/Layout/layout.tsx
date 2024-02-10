@@ -42,7 +42,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div>
       <nav className="navbar navbar-expand-lg bg-white sticky-top navbar-light p-3 shadow-sm">
         <div className="container">
-          <a className="navbar-brand" href="/">
+          <a className="navbar-brand" href="/Dealdash/">
             <FontAwesomeIcon icon={faTruckFast} className="me-1" />{" "}
             <strong>DealDash</strong>
           </a>

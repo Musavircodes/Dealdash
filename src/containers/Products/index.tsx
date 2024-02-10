@@ -16,7 +16,7 @@ const ProductDetails = ({ products }: any) => {
   );
 
   if (!product) {
-    navigate("/");
+    navigate("/Dealdash/");
     return null;
   }
   const handleAddToCart = () => {
@@ -78,7 +78,7 @@ const ProductDetails = ({ products }: any) => {
           <div className="d-flex justify-content-between pt-4">
             <button
               className="btn btn-secondary ml-2"
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/Dealdash/")}
             >
               Go Back
             </button>
