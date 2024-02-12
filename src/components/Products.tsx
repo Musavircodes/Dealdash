@@ -62,13 +62,18 @@ const ProductGrid = ({ products }: any) => {
                     </div>
                     <div className="d-flex justify-content-between p-2">
                       <p className="card-text" style={{ fontSize: "0.9rem" }}>
-                        Price: ${product.price}
+                        Price:{" "}
+                        <span style={{ color: "green" }}>${product.price}</span>
                       </p>
                       <p className="card-text" style={{ fontSize: "0.9rem" }}>
-                        Rating: {product.rating}
+                        Rating:{" "}
+                        <span style={{ color: "green" }}>{product.rating}</span>
                       </p>
                     </div>
-                    <button className="btn btn-secondary mt-auto ">
+                    <button
+                      className="btn btn-dark mt-auto "
+                      style={{ color: "#ffc107" }}
+                    >
                       Explore
                     </button>
                   </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Landing from "./containers/LandingPage";
 import Layout from "./containers/Layout/layout";
 import ProductDetails from "./containers/Products";
@@ -40,6 +40,7 @@ const App: React.FC = () => {
           </Layout>
         }
       />
+      <Route path="*" element={<Navigate to="/Dealdash/" />} />
     </Routes>
   );
 };
