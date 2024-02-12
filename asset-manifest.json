@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Dealdash/static/css/main.d9ad91c4.css",
-    "main.js": "/Dealdash/static/js/main.d24a50ff.js",
+    "main.js": "/Dealdash/static/js/main.470b02ef.js",
     "static/media/bg-img-c.webp": "/Dealdash/static/media/bg-img-c.90b3adfea299b45d006d.webp",
     "index.html": "/Dealdash/index.html",
     "main.d9ad91c4.css.map": "/Dealdash/static/css/main.d9ad91c4.css.map",
-    "main.d24a50ff.js.map": "/Dealdash/static/js/main.d24a50ff.js.map"
+    "main.470b02ef.js.map": "/Dealdash/static/js/main.470b02ef.js.map"
   },
   "entrypoints": [
     "static/css/main.d9ad91c4.css",
-    "static/js/main.d24a50ff.js"
+    "static/js/main.470b02ef.js"
   ]
 }
