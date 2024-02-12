@@ -28,7 +28,9 @@ const SlideShow = ({ data }: any) => {
                     />
                   </div>
                   <div className="p-3 d-flex flex-column justify-content-center ">
-                    <Card.Title>{item.title}</Card.Title>
+                    <Card.Title className="mobile-text">
+                      {item.title}
+                    </Card.Title>
                     <Card.Text className="d-none d-sm-block">
                       {item.description}
                     </Card.Text>

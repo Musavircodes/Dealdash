@@ -9,12 +9,18 @@ interface Product {
   images: string[];
 }
 
+const initialState: Product[] = JSON.parse(
+  localStorage.getItem("cart") || "[]"
+);
+
 const cartSlice = createSlice({
   name: "cart",
-  initialState: [] as Product[],
+  initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<Product>) => {
       state.push(action.payload);
+
+      localStorage.setItem("cart", JSON.stringify(state));
     },
   },
 });

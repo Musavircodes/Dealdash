@@ -23,12 +23,15 @@ code {
   width: 100%;
   height: 100vh !important;
   z-index: -1;
-  top: 70px;
+  top: 109px;
 }
 @media (max-width: 767px) {
   .background-image {
     background-position: center center;
-    top: 100px !important;
+    top: 180px !important;
+  }
+  .mobile-text {
+    font-size: 0.8rem;
   }
 }
 .fullscreen-content {
@@ -68,10 +71,13 @@ code {
   .hide-mobile {
     display: none;
   }
+  .pagination-container {
+    margin-bottom: 228px !important;
+  }
 }
 .pagination-container {
   position: relative;
-  margin-bottom: 135px;
+  margin-bottom: 165px;
   z-index: 1;
 }
 .active .page-link {
@@ -91,4 +97,8 @@ code {
 
 .product-card:hover {
   transform: scale(1.05);
+}
+.offcanvas.show:not(.hiding),
+.offcanvas.showing {
+  width: fit-content !important;
 }

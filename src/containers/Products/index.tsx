@@ -71,8 +71,12 @@ const ProductDetails = ({ products }: any) => {
               {product.description}
             </p>
             <div>
-              <h4>Price: ${product.price}</h4>
-              <h4>Rating: {product.rating}</h4>
+              <h4>
+                Price:<span style={{ color: "green" }}> ${product.price}</span>
+              </h4>
+              <h4>
+                Rating: <span style={{ color: "green" }}>{product.rating}</span>
+              </h4>
             </div>
           </div>
           <div className="d-flex justify-content-between pt-4">

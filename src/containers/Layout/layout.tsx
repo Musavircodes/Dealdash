@@ -1,5 +1,12 @@
 import React, { ReactNode, useState } from "react";
-import { Container, OverlayTrigger, Tooltip } from "react-bootstrap";
+import {
+  Button,
+  Container,
+  Dropdown,
+  Offcanvas,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap";
 
 import backgroundImage from "../../assets/bg-img-c.webp";
 
@@ -13,6 +20,9 @@ import {
   faShoppingCart,
   faSearch,
   faTruckFast,
+  faBagShopping,
+  faHamburger,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../../components/Footer";
 
@@ -27,7 +37,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { pathname } = window.location;
   const hideElement = pathname.includes("/product-details");
   const cart = useSelector((state: RootState) => state.cart);
+  const [show, setShow] = useState(false);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
@@ -133,25 +146,42 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </ul>
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <OverlayTrigger
-                  placement="bottom"
-                  overlay={
-                    <Tooltip>
-                      <div className="cart-details">
-                        {cart.map((item: any) => (
-                          <div key={item.id}>
-                            <div>{item.title}</div>
-                          </div>
-                        ))}
-                      </div>
-                    </Tooltip>
-                  }
-                >
+                {cart.length > 0 && (
+                  <Dropdown>
+                    <Dropdown.Toggle
+                      className="nav-link mx-2 text-uppercase"
+                      variant="link"
+                      id="dropdown-basic"
+                    >
+                      <FontAwesomeIcon icon={faShoppingCart} className="me-1" />{" "}
+                      Cart <span className="cart-count">({cart.length})</span>
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      {cart.map((item: any) => (
+                        <>
+                          <Dropdown.Item key={item.id}>
+                            {item.title}
+                          </Dropdown.Item>
+                          <Dropdown.Divider />
+                        </>
+                      ))}
+                      <Dropdown.Item>
+                        Check-Out{" "}
+                        <FontAwesomeIcon
+                          icon={faBagShopping}
+                          style={{ marginLeft: "2rem" }}
+                        />{" "}
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                )}
+                {cart.length === 0 && (
                   <a className="nav-link mx-2 text-uppercase" href="#">
                     <FontAwesomeIcon icon={faShoppingCart} className="me-1" />{" "}
-                    Cart <span className="cart-count">({cart.length})</span>
+                    Cart <span className="cart-count">(0)</span>
                   </a>
-                </OverlayTrigger>
+                )}
               </li>
 
               <li className="nav-item">
@@ -163,6 +193,85 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </div>
         </div>
       </nav>
+
+      <div
+        className="d-flex justify-content-start align-items-center"
+        style={{ height: "38px", backgroundColor: "#000", color: "#fff" }}
+      >
+        {!hideElement && (
+          <>
+            <FontAwesomeIcon
+              onClick={handleShow}
+              icon={faBars}
+              className="mr-2"
+              style={{
+                width: "30px",
+                height: "30px",
+                marginRight: "10px",
+                marginLeft: "10px",
+              }}
+            />
+            <div style={{ fontSize: "1.3rem" }}>All</div>
+          </>
+        )}
+        <div className="d-flex justify-content-start align-items-center">
+          {" "}
+          <p className="m-0" style={{ paddingLeft: "3rem" }}>
+            Todays's Deals
+          </p>
+          <p className="m-0 p-3 hide-mobile">Customer Service</p>
+          <p className="m-0 p-3 hide-mobile">Gift Cards</p>
+        </div>
+        <Offcanvas show={show} onHide={handleClose}>
+          <Offcanvas.Header style={{ backgroundColor: "grey" }} closeButton>
+            <Offcanvas.Title style={{ color: "#fff" }}>
+              Hello, Sign-In
+            </Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            <ul style={{ listStyleType: "none", padding: 0 }}>
+              <li style={{ marginBottom: "10px" }}>
+                <div style={{ fontWeight: "bold", fontSize: "1.2rem" }}>
+                  Shop by Departments
+                </div>
+              </li>
+              <li style={{ marginBottom: "5px" }}>
+                <div>Smartphones</div>
+              </li>
+              <li style={{ marginBottom: "5px" }}>
+                <div>Laptops</div>
+              </li>{" "}
+              <li style={{ marginBottom: "5px" }}>
+                <div>Fragrances</div>
+              </li>{" "}
+              <li style={{ marginBottom: "5px" }}>
+                <div>Skincare</div>
+              </li>{" "}
+              <li style={{ marginBottom: "5px" }}>
+                <div>Groceries</div>
+              </li>
+              <li style={{ marginBottom: "5px" }}>
+                <div>Home-Decoration</div>
+              </li>
+              <li
+                style={{
+                  marginTop: "20px",
+                  borderTop: "1px solid #ccc",
+                  paddingTop: "10px",
+                }}
+              >
+                <div style={{ fontWeight: "bold", fontSize: "1.2rem" }}>
+                  Help & Settings
+                </div>
+              </li>
+              <li style={{ marginTop: "5px" }}>
+                <a>Sign in</a>
+              </li>
+            </ul>
+          </Offcanvas.Body>
+        </Offcanvas>
+      </div>
+
       <div
         className="background-image "
         style={{ backgroundImage: `url(${backgroundImage})` }}
