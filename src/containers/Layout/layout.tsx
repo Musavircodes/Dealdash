@@ -166,7 +166,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                           <Dropdown.Divider />
                         </>
                       ))}
-                      <Dropdown.Item>
+                      <Dropdown.Item style={{ fontWeight: "bold" }}>
                         Check-Out{" "}
                         <FontAwesomeIcon
                           icon={faBagShopping}

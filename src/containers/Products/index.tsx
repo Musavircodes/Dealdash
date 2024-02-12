@@ -70,31 +70,37 @@ const ProductDetails = ({ products }: any) => {
             <p style={{ fontSize: "16px", lineHeight: "1.6" }}>
               {product.description}
             </p>
-            <div>
-              <h4>
-                Price:<span style={{ color: "green" }}> ${product.price}</span>
-              </h4>
-              <h4>
-                Rating: <span style={{ color: "green" }}>{product.rating}</span>
-              </h4>
+            <div className="d-flex justify-content-around w-100">
+              <div>
+                <button
+                  className="btn btn-secondary ml-2 hide-mobile"
+                  onClick={() => navigate("/Dealdash/")}
+                >
+                  Keep Exploring
+                </button>
+              </div>
+              <div>
+                <h4>
+                  Price:
+                  <span style={{ color: "green" }}> ${product.price}</span>
+                </h4>
+                <h4>
+                  Rating:{" "}
+                  <span style={{ color: "green" }}>{product.rating}</span>
+                </h4>
+              </div>
+              <div>
+                <Button
+                  className="hide-mobile"
+                  variant="warning"
+                  style={{ backgroundColor: "yellow", color: "black" }}
+                  onClick={handleAddToCart}
+                >
+                  <FontAwesomeIcon icon={faShoppingCart} className="me-1" /> Add
+                  to Cart
+                </Button>
+              </div>
             </div>
-          </div>
-          <div className="d-flex justify-content-between pt-4">
-            <button
-              className="btn btn-secondary ml-2"
-              onClick={() => navigate("/Dealdash/")}
-            >
-              Go Back
-            </button>
-
-            <Button
-              variant="warning"
-              style={{ backgroundColor: "yellow", color: "black" }}
-              onClick={handleAddToCart}
-            >
-              <FontAwesomeIcon icon={faShoppingCart} className="me-1" /> Add to
-              Cart
-            </Button>
           </div>
         </div>
       </div>
